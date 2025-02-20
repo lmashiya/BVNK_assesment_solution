@@ -12,18 +12,22 @@ def logger():
     return logger
 
 @pytest.fixture(scope="session")
-def api_client():
-    auth = Auth(None)
-    client = APIClient(auth)
+def auth(logger):
+    auth_instance = Auth(None, logger)
+    return auth_instance
+
+@pytest.fixture(scope="session")
+def api_client(auth,logger):
+    client = APIClient(auth,logger)
     auth.api_client = client
     return client
 
 
 @pytest.fixture(scope="session")
-def quote_api(api_client):
-    return Quote(api_client=api_client)
+def quote_api(api_client,logger):
+    return Quote(api_client=api_client,logger=logger)
 
 
 @pytest.fixture(scope="session")
-def wallet_api(api_client):
-    return Wallet(api_client=api_client)
+def wallet_api(api_client,logger):
+    return Wallet(api_client=api_client,logger=logger)
