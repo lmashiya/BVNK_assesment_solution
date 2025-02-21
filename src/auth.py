@@ -26,3 +26,8 @@ class Auth:
         else:
             headers["Authorization"] = f"Bearer {self.auth_token}"
         return headers
+
+    def test_auth(self):
+        self.logger.info("Testing auth token...")
+        response = self.api_client.send_request("GET", "/auth",)
+        return response

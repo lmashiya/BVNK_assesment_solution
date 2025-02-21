@@ -25,7 +25,6 @@ class Quote:
 
         response = self.api_client.send_request("POST", endpoint, data=data)
 
-        # Log the response status
         self.logger.info(f"Quote created with response: {response}")
 
         return response
@@ -35,7 +34,6 @@ class Quote:
         endpoint = f"/api/v1/quote/accept/{quote_uuid}"
         response = self.api_client.send_request("PUT", endpoint)
 
-        # Log the response status
         self.logger.info(f"Quote accepted with response: {response}")
 
         return response

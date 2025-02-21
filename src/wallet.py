@@ -36,7 +36,6 @@ class Wallet:
         ids = {}
         response = self.list_wallets()
 
-        # Extract and log the wallet IDs
         for wallet in response:
             ids[wallet["currency"]["code"]] = int(wallet["id"])
 

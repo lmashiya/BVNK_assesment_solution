@@ -1,7 +1,5 @@
 import requests
-import logging
 
-# logger = logging.getLogger("e2e_api_tests")
 
 class APIClient:
     def __init__(self, auth,logger):
