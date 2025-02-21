@@ -43,7 +43,6 @@ class Quote:
         endpoint = f"/api/v1/quote/{quote_uuid}"
         response = self.api_client.send_request("GET", endpoint)
 
-        # Log the response status
         self.logger.info(f"Retrieved quote with response: {response}")
 
         return response
