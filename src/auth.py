@@ -29,5 +29,5 @@ class Auth:
 
     def test_auth(self):
         self.logger.info("Testing auth token...")
-        response = self.api_client.send_request("GET", "/auth",)
+        response = self.api_client.send_request("GET", "/echo",)
         return response
